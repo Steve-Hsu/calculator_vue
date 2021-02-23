@@ -1,50 +1,45 @@
 <template>
-     <div class="board">
-           <div v-for="n in 17" :key="n">
-               <Btn :num="n" />
-
+  <div class="board">
+    <Btn v-for="n in 17" :key="n" :num="n" @accepted="onClickChild" />
   </div>
-    </div>
 </template>
 
 <script>
-import Btn from '../components/Btn'
+import Btn from "../components/Btn";
 
 export default {
-    name:"Board",
-    components: {
-    Btn
-    },
-    props:{
-        msg:String,
-        s:String,
-    },
-    data: function () {
-        return {
-            counter: "1",
-            test : "here is the test",
-            btnArr: Array.from(Array(17).keys()),
-        }
-    },
-    mounted () {
+  name: "Board",
+  components: {
+    Btn,
+  },
+  props: {
+    msg: String,
+    s: String,
+  },
 
+  data: function() {
+    return {
+      counter: "1",
+      test: "here is the test",
+      btnArr: Array.from(Array(17).keys()),
+    };
+  },
+  mounted() {},
+  created() {},
+
+  methods: {
+    onClickChild(value) {
+      console.log("the app.vue", value); // someValue
     },
-    created () {
-        
-    //    this.btnArr = this.btnArr.map((i)=>{
-    //         return `name of ${i}`
-    //         });
-    //         console.log("the created",this.btnArr);
-    }
-}
+  },
+};
 </script>
 
 <style>
-.board{
- display: grid;
+.board {
+  display: grid;
   width: 30%;
   grid-template-columns: repeat(3, 1fr);
   background-color: red;
 }
-
 </style>

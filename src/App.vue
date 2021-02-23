@@ -1,18 +1,18 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-  the number
-  <Board msg="Welcome to Your Vue.js App" s="Steve"/>
+
+  <Board msg="Welcome to Your Vue.js App" s="Steve" />
 </template>
 
 <script>
-import Board from './components/Board.vue'
+import Board from "./components/Board.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Board
-  }
-}
+    Board,
+  },
+};
 </script>
 
 <style>

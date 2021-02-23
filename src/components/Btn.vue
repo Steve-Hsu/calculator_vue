@@ -1,5 +1,5 @@
 <template>
-  <button class="btn">{{ label }}</button>
+  <button class="btn" v-on:click="onClickButton">{{ label }}</button>
 </template>
 
 <script>
@@ -9,6 +9,7 @@ export default {
     num: Number,
     // label:String,
   },
+  emits: ["accepted"],
   data() {
     return {
       label: String,
@@ -46,7 +47,13 @@ export default {
         break;
     }
 
-    console.log("test", this.label);
+    // console.log("test", this.label);
+  },
+  methods: {
+    onClickButton() {
+      console.log("hit the btn");
+      this.$emit("accepted", "123");
+    },
   },
 };
 </script>
