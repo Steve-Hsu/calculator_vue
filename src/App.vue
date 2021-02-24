@@ -1,5 +1,5 @@
 <template>
-  <div>{{ displayNumber }}</div>
+  <div>{{ this.thousands(displayNumber) }}</div>
   <Board
     msg="Welcome to Your Vue.js App"
     s="Steve"
@@ -133,7 +133,7 @@ export default {
                 this.oldNum = String(Number(this.oldNum) * Number(this.newNum));
                 break;
               case "/":
-                this.oldNum = String(Number(this.oldNum) * Number(this.newNum));
+                this.oldNum = String(Number(this.oldNum) / Number(this.newNum));
                 break;
               default:
             }
@@ -165,6 +165,35 @@ export default {
           }
           this.newNum = this.displayNumber;
       }
+    },
+    thousands(num) {
+      console.log("the displayNumber in thousands", this.displayNumber);
+      console.log("the newnum", this.newNum);
+      console.log("the oldNum", this.oldNum);
+      let target = String(num);
+      let isDecimalNum = target.indexOf(".") > -1;
+      let newStr = "";
+      let tailOfDecimal = "";
+      let length = target.length;
+      let strArr = target.split("");
+      // if (isDecimalNum) {
+      //   console.log("yes in deci");
+
+      if (isDecimalNum && target.indexOf(".") + 1 <= length) {
+        tailOfDecimal = String(target.slice(target.indexOf(".")));
+        // length = target.slice(0, target.indexOf("."));
+        strArr = target.slice(0, target.indexOf(".")).split("");
+        length = strArr.length;
+      }
+      for (let i = 1; i <= length; i++) {
+        let theString = strArr[length - i];
+        let isMultipleOfThree = i % 3 === 0;
+        if (isMultipleOfThree && i !== length) {
+          theString = "," + theString;
+        }
+        newStr = String(theString) + newStr;
+      }
+      return newStr + tailOfDecimal;
     },
   },
 };
