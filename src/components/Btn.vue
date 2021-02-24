@@ -15,6 +15,12 @@ export default {
       label: String,
     };
   },
+  methods: {
+    onClickButton() {
+      console.log("hit the btn");
+      this.$emit("accepted", this.label);
+    },
+  },
   created() {
     console.log("the num in btn.vue", this.num);
     switch (this.num) {
@@ -48,12 +54,6 @@ export default {
     }
 
     // console.log("test", this.label);
-  },
-  methods: {
-    onClickButton() {
-      console.log("hit the btn");
-      this.$emit("accepted", "123");
-    },
   },
 };
 </script>

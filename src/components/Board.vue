@@ -16,7 +16,7 @@ export default {
     msg: String,
     s: String,
   },
-
+  emits: ["displayNumber"],
   data: function() {
     return {
       counter: "1",
@@ -24,21 +24,21 @@ export default {
       btnArr: Array.from(Array(17).keys()),
     };
   },
-  mounted() {},
-  created() {},
-
   methods: {
     onClickChild(value) {
       console.log("the app.vue", value); // someValue
+      this.$emit("displayNumber", value);
     },
   },
+  mounted() {},
+  created() {},
 };
 </script>
 
 <style>
 .board {
   display: grid;
-  width: 30%;
+  width: 25%;
   grid-template-columns: repeat(3, 1fr);
   background-color: red;
 }
