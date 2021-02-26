@@ -24,46 +24,20 @@ export default {
   created() {
     this.label = `${this.num}`;
     console.log("the num in btn.vue", this.num);
-    // switch (this.num) {
-    //   case 10:
-    //     this.label = 0;
-    //     break;
-    //   case 11:
-    //     this.label = "+";
-    //     break;
-    //   case 12:
-    //     this.label = "-";
-    //     break;
-    //   case 13:
-    //     this.label = "/";
-    //     break;
-    //   case 14:
-    //     this.label = "x";
-    //     break;
-    //   case 15:
-    //     this.label = "=";
-    //     break;
-    //   case 16:
-    //     this.label = "c";
-    //     break;
-    //   case 17:
-    //     this.label = ".";
-    //     break;
-    //   default:
-    //     this.label = `${this.num}`;
-    //     break;
-    // }
-
-    // console.log("test", this.label);
   },
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+// Scss
 .btn {
   width: 5rem;
   height: 5rem;
-
+  background-color: rgba(50, 50, 50, 1);
   border-radius: 50%;
+  margin: auto;
+  font-family: "Poiret One", cursive;
+  font-size: 30px;
+  font-weight: 800;
 }
 </style>

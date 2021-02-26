@@ -188,10 +188,24 @@ export default {
           }
           break;
         case "+/-":
+          if (this.displayNumber.split("")[0] !== "-") {
+            this.displayNumber = "-" + this.displayNumber;
+          } else {
+            this.displayNumber = this.displayNumber.replace("-", "");
+          }
+          // this.oldNum = this.displayNumber;
+
           break;
         default:
           if (this.displayNumber !== "0") {
-            this.displayNumber = this.displayNumber + value;
+            if (
+              this.displayNumber.split("")[0] === "-" &&
+              this.displayNumber.split("")[1] === "0"
+            ) {
+              this.displayNumber = "-" + value;
+            } else {
+              this.displayNumber = this.displayNumber + value;
+            }
           } else {
             this.displayNumber = value;
           }
@@ -241,5 +255,17 @@ export default {
   margin-top: 60px;
   display: grid;
   place-items: center;
+  /* background-color: black; */
+}
+.displayNum {
+  padding: 5px 1px;
+  height: 100px;
+  width: 350px;
+  background-color: black;
+  color: white;
+  font-size: 50px;
+  font-weight: 800;
+  font-family: "Poiret One", cursive;
+  /* overflow: hidden; */
 }
 </style>

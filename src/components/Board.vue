@@ -44,8 +44,9 @@ export default {
 
 <style>
 .board {
-  display: grid;
-  width: 25%;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  width: 350px;
+  background-color: black;
 }
 </style>
