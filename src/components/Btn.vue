@@ -9,7 +9,7 @@ export default {
     num: Number,
     // label:String,
   },
-  emits: ["accepted"],
+  // emits: ["accepted"],
   data() {
     return {
       label: String,
@@ -22,36 +22,37 @@ export default {
     },
   },
   created() {
+    this.label = `${this.num}`;
     console.log("the num in btn.vue", this.num);
-    switch (this.num) {
-      case 10:
-        this.label = 0;
-        break;
-      case 11:
-        this.label = "+";
-        break;
-      case 12:
-        this.label = "-";
-        break;
-      case 13:
-        this.label = "/";
-        break;
-      case 14:
-        this.label = "x";
-        break;
-      case 15:
-        this.label = "=";
-        break;
-      case 16:
-        this.label = "c";
-        break;
-      case 17:
-        this.label = ".";
-        break;
-      default:
-        this.label = `${this.num}`;
-        break;
-    }
+    // switch (this.num) {
+    //   case 10:
+    //     this.label = 0;
+    //     break;
+    //   case 11:
+    //     this.label = "+";
+    //     break;
+    //   case 12:
+    //     this.label = "-";
+    //     break;
+    //   case 13:
+    //     this.label = "/";
+    //     break;
+    //   case 14:
+    //     this.label = "x";
+    //     break;
+    //   case 15:
+    //     this.label = "=";
+    //     break;
+    //   case 16:
+    //     this.label = "c";
+    //     break;
+    //   case 17:
+    //     this.label = ".";
+    //     break;
+    //   default:
+    //     this.label = `${this.num}`;
+    //     break;
+    // }
 
     // console.log("test", this.label);
   },
@@ -62,6 +63,7 @@ export default {
 .btn {
   width: 5rem;
   height: 5rem;
-  margin: 5px;
+
+  border-radius: 50%;
 }
 </style>

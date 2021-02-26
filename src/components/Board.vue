@@ -1,6 +1,12 @@
 <template>
   <div class="board">
-    <Btn v-for="n in 17" :key="n" :num="n" @accepted="onClickChild" />
+    <Btn
+      class="btn"
+      v-for="n in calculations"
+      :key="n"
+      :num="n"
+      @accepted="onClickChild"
+    />
   </div>
 </template>
 
@@ -15,8 +21,9 @@ export default {
   props: {
     msg: String,
     s: String,
+    calculations: Array,
   },
-  emits: ["displayNumber"],
+  // emits: ["displayNumber"],
   data: function() {
     return {
       counter: "1",
@@ -39,7 +46,6 @@ export default {
 .board {
   display: grid;
   width: 25%;
-  grid-template-columns: repeat(3, 1fr);
-  background-color: red;
+  grid-template-columns: repeat(4, 1fr);
 }
 </style>

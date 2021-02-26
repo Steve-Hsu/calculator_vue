@@ -1,9 +1,11 @@
 <template>
-  <div>{{ this.thousands(displayNumber) }}</div>
+  <div class="displayNum">{{ this.thousands(displayNumber) }}</div>
+
   <Board
     msg="Welcome to Your Vue.js App"
     s="Steve"
     @displayNumber="onClickChild"
+    :calculations="calculations"
   />
 </template>
 
@@ -31,6 +33,28 @@ export default {
       convertRoot: 0,
       oldConvertedNum: 0,
       newConvertedNum: 0,
+      calculations: [
+        "c", // 1
+        "+/-",
+        "%",
+        "/",
+        "7", // 2
+        "8",
+        "9",
+        "x",
+        "4", // 3
+        "5",
+        "6",
+        "-",
+        "1", // 4
+        "2",
+        "3",
+        "+",
+        "0", // 5
+        "0",
+        ".",
+        "=",
+      ],
     };
   },
   methods: {
@@ -44,7 +68,7 @@ export default {
         case "-":
         case "x":
         case "/":
-          this.oldNum = this.displayNumber;
+          this.oldNum = String(this.displayNumber);
           this.displayNumber = "0";
           this.cal = this.enteredKey;
           break;
@@ -135,6 +159,7 @@ export default {
               case "/":
                 this.oldNum = String(Number(this.oldNum) / Number(this.newNum));
                 break;
+
               default:
             }
             // this.displayNumber = this.oldNum;
@@ -156,6 +181,13 @@ export default {
           if (this.displayNumber !== "0") {
             this.displayNumber = this.displayNumber + "0";
           }
+          break;
+        case "%":
+          if (this.displayNumber !== "0") {
+            this.displayNumber = this.displayNumber / 100;
+          }
+          break;
+        case "+/-":
           break;
         default:
           if (this.displayNumber !== "0") {
